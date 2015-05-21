@@ -1,0 +1,10 @@
+{
+  "name": "virtual-dom-testing",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "virtual-dom": "^2.0.1"
+  }
+}
