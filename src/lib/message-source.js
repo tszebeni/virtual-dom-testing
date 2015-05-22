@@ -28,7 +28,7 @@ define('message-source', ['format','request'], function (require, module, export
         return messageSource[locale][key];
     };
 
-    var parameters = request.paramDecode();
+    var parameters = request.params;
     if (parameters[localeParam]) {
         var suggestedLocale = parameters[localeParam]
         if (supportedLocales.indexOf(suggestedLocale)) {

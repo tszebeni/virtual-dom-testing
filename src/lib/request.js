@@ -39,7 +39,7 @@ define('request', [], function (require, module, exports) {
             data = null;
         }
         if (data) {
-            url = url + '?' + param(data);
+            url = url + '?' + paramEncode(data);
         }
         var xhr = new XMLHttpRequest();
         xhr.open('GET', encodeURI(url), false); // false -> synchron request!! TODO: implement promise
