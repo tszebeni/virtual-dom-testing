@@ -1,0 +1,7 @@
+{
+    "header.message": "Virtual DOM Testing, clicked: {0}",
+    "locale.switcher": "Switch to locale [{0}]",
+    "debug.toggle": "Toggle debug mode [{0}]",
+    "debug.toggle-on-true": "On",
+    "debug.toggle-on-false": "Off"
+}

@@ -1,0 +1,7 @@
+{
+    "header.message": "Virtual DOM Tesztelés, {0}-szer kattintva",
+    "locale.switcher": "Átváltás [{0}] nyelvre",
+    "debug.toggle": "Debug mód átváltása [{0}]",
+    "debug.toggle-on-true": "Be",
+    "debug.toggle-on-false": "Ki"
+}
