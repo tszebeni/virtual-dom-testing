@@ -1,4 +1,5 @@
 (function (global) {
+    "use strict";
 
     global.assert = function assert(expression, message) {
         if (!message) {
