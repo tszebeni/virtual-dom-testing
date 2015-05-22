@@ -1,3 +1,6 @@
+/**
+ * Simple assert in global scope
+ */
 (function (global) {
     "use strict";
 

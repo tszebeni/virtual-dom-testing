@@ -2,24 +2,41 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Virtual Dom testing</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
     <div class="page"></div>
 
     <!-- base module loading -->
-    <script src="assert.js"></script>
-    <script src="module.js"></script>
+    <script src="lib/assert.js"></script>
+    <script src="lib/module.js"></script>
+
+    <!-- ajax -->
+    <script src="lib/request.js"></script>
+
+    <!-- I18n -->
+    <script src="lib/format.js"></script>
+    <script src="lib/message-source.js"></script>
+    <script src="lib/i18n.js"></script>
 
     <!-- virtual-dom integration -->
     <script src="../node_modules/virtual-dom/dist/virtual-dom.js"></script>
-    <script src="virtual-dom.js"></script>
+    <script src="lib/virtual-dom.js"></script>
+
+    <!-- graceful exit -->
+    <script src="lib/leave.js"></script>
 
     <!-- components -->
+    <script src="components/debug-component.js"></script>
     <script src="components/header-component.js"></script>
+    <script src="components/locale-component.js"></script>
 
     <!-- bootstrap -->
     <script src="app.js"></script>
+
+
 </body>
 </html>

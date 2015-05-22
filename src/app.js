@@ -1,26 +1,51 @@
-define('app', ['virtual-dom/h','virtual-dom/diff','virtual-dom/patch','virtual-dom/create', 'header-component'], function (require, module, exports, h, diff, patch, create, headerComponent) {
+/**
+ * Bootstrap logic for our app
+ */
+define('app', ['virtual-dom/h','virtual-dom/diff','virtual-dom/patch','virtual-dom/create', 'header-component', 'locale-component', 'debug-component', 'request'], function (require, module, exports, h, diff, patch, create, headerComponent, localeComponent, debugComponent ,request) {
     "use strict";
     var container = document.querySelector('.page');
-    container.innerHTML = 'Hello World!';
+    var finished = false;
+    var tree, rootNode;
 
-    function render(count)  {
-        return h('div', [headerComponent(count)]);
+    function render() {
+        return h('article', {
+            className: request.params.debug === 'true'? 'debug':'' // indicate that we are in debug mode TODO instead of css make it automatic
+        },[headerComponent(), localeComponent(), debugComponent()]); // Top level page components
     }
 
-    var count = 0;
+    function renderPage() {
+        tree = render();
+        rootNode = create(tree);
+        container.appendChild(rootNode);
+        updatePage();
+    }
 
-    var tree = render(count);
-    var rootNode = create(tree);
-    container.appendChild(rootNode);
+    function updatePage() {
+        if (!finished) {
+            var newTree = render();
+            var patches = diff(tree, newTree);
+            rootNode = patch(rootNode, patches);
+            tree = newTree;
+            interval(updatePage);
+        }
+    }
 
-    setInterval(function () {
-          count++;
+    function interval(cb) {
+        (window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element ) {
+            window.setTimeout( callback, 1000 / 60 );
+        }) (cb);
+    }
 
-          var newTree = render(count);
-          var patches = diff(tree, newTree);
-          rootNode = patch(rootNode, patches);
-          tree = newTree;
-    }, 1000);
+    renderPage();
+
+    exports.leave = function () {
+        finished = true; // hook to stop rerendering the page on demand
+    };
 
 });
 

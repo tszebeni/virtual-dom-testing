@@ -1,6 +1,6 @@
 /**
- * Simple AMD module loader which loads independent Virtual Dom bundle packaged by Browserify.
- * TODO: waitFor not defined modules
+ * Simple AMD module loader which loads Browserified packages as well (third party virtual dom).
+ * TODO: Promise based waitFor for not yet defined modules
  */
 (function (global) {
     "use strict";
