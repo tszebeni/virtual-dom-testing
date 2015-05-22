@@ -6,7 +6,7 @@
 
     global.assert = function assert(expression, message) {
         if (!message) {
-            message = "Asserion error";
+            message = "Assertion Error";
         }
         if (!expression) {
             throw new Error(message);
