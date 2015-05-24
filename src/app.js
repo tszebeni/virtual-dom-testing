@@ -41,11 +41,23 @@ define('app', ['virtual-dom/h','virtual-dom/diff','virtual-dom/patch','virtual-d
         }) (cb);
     }
 
-    renderPage();
+    var update = function update() {
+        try {
+            updatePage();
+        } catch(e) {
+            console.log(e);
+        }
+    };
+
+    try {
+        renderPage();
+    } catch(e) {
+        console.log(e);
+    }
 
     exports.leave = function () {
         finished = true; // hook to stop rerendering the page on demand
     };
+    exports.update = update;
 
 });
-

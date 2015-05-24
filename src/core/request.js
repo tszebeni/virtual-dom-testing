@@ -1,7 +1,5 @@
 /**
  * Request module for AJAX
- * currently: GET sync
- * TODO: make it async
  * TODO: support more methods
  * TODO: cover it by unittests
  */
@@ -33,24 +31,28 @@ define('request', [], function (require, module, exports) {
 
 
 
-    var request = function request(url, data, cb) {
-        if (!cb) {
-            cb = data;
-            data = null;
-        }
+    var request = function request(url, data) {
+        assert(!!Promise, 'Promise API is not available');
+
         if (data) {
             url = url + '?' + paramEncode(data);
         }
+
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', encodeURI(url), false); // false -> synchron request!! TODO: implement promise
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                cb(xhr.responseText, xhr);
-            } else {
-                cb('', xhr);
-            }
-        };
-        xhr.send();
+        xhr.open('GET', encodeURI(url));
+
+        var promise = new Promise(function (resolve, reject) {
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    resolve(xhr.responseText, xhr);
+                } else {
+                    reject('', xhr);
+                }
+            };
+            xhr.send();
+        });
+
+        return promise;
     };
 
     module.exports = request;

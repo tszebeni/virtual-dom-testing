@@ -10,7 +10,7 @@ define('i18n', ['format', 'message-source'], function (require, module, exports,
         if (!message) {
             message = key;
         }
-        return format(messages[key], parameters);
+        return format.apply(null, [messages[key]].concat(parameters));
     };
 
     module.exports = resolve;
