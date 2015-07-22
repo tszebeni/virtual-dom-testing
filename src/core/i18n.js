@@ -10,9 +10,14 @@ define('i18n', ['format', 'message-source'], function (require, module, exports,
         if (!message) {
             message = key;
         }
-        return format.apply(null, [messages[key]].concat(parameters));
+        return format.apply(null, [message].concat(parameters));
+    };
+
+    var reset = function reset() {
+        messages = {};
     };
 
     module.exports = resolve;
     module.exports.format = format;
+    module.exports.reset = reset;
 });

@@ -12,6 +12,10 @@ define('locale-component', ['virtual-dom/h', 'i18n', 'message-source'], function
                 style: {
                     display: 'block'
                 },
+                onclick: function (event) {
+                    messageSource.setLocale(locale);
+                    event.preventDefault();
+                },
                 className: (activeLocale === locale ? 'active':''),
                 href: '?locale=' + locale
             },[
@@ -19,14 +23,14 @@ define('locale-component', ['virtual-dom/h', 'i18n', 'message-source'], function
             ]);
     };
 
-    var localeComponent = function localeComponent() {
+    function localeComponent() {
 
         return h('main', {
                 className: 'component locale-component'
             }, [
                 locales.map(locale)
             ]);
-    };
+    }
 
     module.exports = localeComponent;
 });

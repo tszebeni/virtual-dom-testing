@@ -20,36 +20,39 @@ define('message-source', ['format','request', 'global'], function (require, modu
         defaultLocale = global.defaultLocale;
     }
 
-    request(format(path, locale)).then(function (response) {
-        messageSource[locale] = JSON.parse(response);
-        var app = require('app');
-        app.update();
-    }, function () {
-        assert(locale !== defaultLocale, 'Failed to load translations for defaultLocale: ' + defaultLocale);
-    });
+    var parameters = request.params;
+    if (parameters[localeParam]) {
+        var suggestedLocale = parameters[localeParam];
+        if (supportedLocales.indexOf(suggestedLocale)) {
+            locale = suggestedLocale;
+        }
+    }
 
-    var get = function get(key) {
+    function setLocale (locale_) {
+        request(format(path, locale_), {
+            cache: true
+        }).then(function (response) {
+            messageSource[locale_] = JSON.parse(response);
+            locale = locale_;
+            var i18n = require('i18n');
+            i18n.reset();
+        }, function () {
+            assert(locale !== defaultLocale, 'Failed to load translations for defaultLocale: ' + defaultLocale);
+        });
+    }
+    setLocale(locale);
+
+    function get(key) {
         locale = locale || defaultLocale;
         if (!messageSource[locale]) {
             return '';
         } else {
             return messageSource[locale][key];
         }
-    };
-
-    var setTranslations = function setTranslations(translation, locale) {
-        messageSource[locale] = translation;
-    };
-
-    var parameters = request.params;
-    if (parameters[localeParam]) {
-        var suggestedLocale = parameters[localeParam]
-        if (supportedLocales.indexOf(suggestedLocale)) {
-            locale = suggestedLocale;
-        }
     }
 
     module.exports = get;
+    module.exports.setLocale = setLocale;
     module.exports.locales = supportedLocales;
     module.exports.locale = locale;
 });
