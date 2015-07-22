@@ -3,7 +3,9 @@
  * TODO: support more methods
  * TODO: cover it by unittests
  */
-define('request', [], function (require, module, exports) {
+define('request', [], function (require, module) {
+
+    var cache = {};
 
     function paramEncode(object) {
         var encodedString = '';
@@ -22,7 +24,7 @@ define('request', [], function (require, module, exports) {
         var params = {};
         queryString = queryString || location.search.substring(1);
         var paramsArray = (queryString+'&').split('&');
-        paramsArray.forEach(function (paramExpr, i) {
+        paramsArray.forEach(function (paramExpr) {
             var param = decodeURI(paramExpr).split('=');
             params[param[0]] = param[1];
         });
@@ -31,11 +33,17 @@ define('request', [], function (require, module, exports) {
 
 
 
-    var request = function request(url, data) {
+    function request(url, opts) {
         assert(!!Promise, 'Promise API is not available');
 
-        if (data) {
-            url = url + '?' + paramEncode(data);
+        if (opts && opts.data) {
+            url = url + '?' + paramEncode(opts.data);
+        }
+
+        if (opts && opts.cache) {
+            if (cache[url]) {
+                return cache[url];
+            }
         }
 
         var xhr = new XMLHttpRequest();
@@ -52,8 +60,12 @@ define('request', [], function (require, module, exports) {
             xhr.send();
         });
 
+        if (opts && opts.cache) {
+            cache[url] = promise;
+        }
+
         return promise;
-    };
+    }
 
     module.exports = request;
     module.exports.paramEncode = paramEncode;
