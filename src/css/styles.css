@@ -168,8 +168,12 @@ textarea:-moz-placeholder { color:#a9a9a9; }
 
 .component {
   display: block;
-  padding: 2em;
+  padding: 5px;
   position: relative;
+}
+
+.debug .component {
+  padding: 2em 0 0 2em;
 }
 
 .debug .component:before {
@@ -186,16 +190,8 @@ textarea:-moz-placeholder { color:#a9a9a9; }
   font-style: italic;
 }
 
-.debug .header-component:before {
-  content: 'HeaderComponent';
-}
-
-.debug .locale-component:before {
-  content: 'LocaleComponent';
-}
-
-.debug .debug-component:before {
-  content: 'DebugComponent';
+.debug .component:before {
+  content: attr(data-title);
 }
 
 .header-component {

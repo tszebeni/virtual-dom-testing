@@ -1,0 +1,10 @@
+{
+    "header.message": "Virtual DOM Tesztelés",
+    "locale.switcher": "Átváltás [{0}] nyelvre",
+    "debug.toggle": "Debug mód átváltása [{0}]",
+    "debug.toggle-on-true": "Be",
+    "debug.toggle-on-false": "Ki",
+    "welcome.message": "Üdvözöllek az oldalon",
+    "footer.copyright": "Védjegy \u00A9 {0}",
+    "countdown.remaining": "Hátralévő idő: {0}"
+}

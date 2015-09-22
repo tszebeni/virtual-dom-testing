@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Virtual Dom testing</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body>
+
+    <div class="page"></div>
+
+    <!-- base module loading -->
+    <script src="src/core/assert.js"></script>
+    <script src="src/core/module.js"></script>
+    <script src="src/core/global.js"></script>
+
+    <!-- ajax -->
+    <script src="src/core/request.js"></script>
+
+    <!-- I18n -->
+    <script src="src/core/format.js"></script>
+    <script src="src/core/message-source.js"></script>
+    <script src="src/core/i18n.js"></script>
+
+    <!-- virtual-dom integration -->
+    <script src="node_modules/virtual-dom/dist/virtual-dom.js"></script>
+    <script src="src/core/virtual-dom.js"></script>
+
+    <!-- graceful exit -->
+    <script src="src/core/leave.js"></script>
+
+    <!-- component registry -->
+    <script src="src/core/component-registry.js"></script>
+
+    <!-- components -->
+    <script src="src/components/debug-component.js"></script>
+    <script src="src/components/header-component.js"></script>
+    <script src="src/components/locale-component.js"></script>
+    <script src="src/components/countdown-component.js"></script>
+    <script src="src/components/main-component.js"></script>
+    <script src="src/components/footer-component.js"></script>
+
+    <!-- bootstrap -->
+    <script src="src/app.js"></script>
+</body>
+</html>
+
