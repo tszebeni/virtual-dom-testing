@@ -1,16 +1,15 @@
 /**
  * Bootstrap logic for our app
  */
-define('app', ['virtual-dom/h','virtual-dom/diff','virtual-dom/patch','virtual-dom/create', 'header-component', 'locale-component', 'debug-component', 'request'], function (require, module, exports, h, diff, patch, create, headerComponent, localeComponent, debugComponent ,request) {
+define('app', ['virtual-dom/h', 'virtual-dom/diff','virtual-dom/patch','virtual-dom/create', 'component-registry'], function (require, module, exports, h, diff, patch, create, componentRegistry) {
     "use strict";
     var container = document.querySelector('.page');
     var finished = false;
     var tree, rootNode;
+    var state = {};
 
     function render() {
-        return h('article', {
-            className: request.params.debug === 'true'? 'debug':'' // indicate that we are in debug mode TODO instead of css make it automatic
-        },[headerComponent(), localeComponent(), debugComponent()]); // Top level page components
+        return componentRegistry.render('homepage', state);
     }
 
     function renderPage() {
@@ -26,11 +25,11 @@ define('app', ['virtual-dom/h','virtual-dom/diff','virtual-dom/patch','virtual-d
             var patches = diff(tree, newTree);
             rootNode = patch(rootNode, patches);
             tree = newTree;
-            interval(updatePage);
+            tick(updatePage);
         }
     }
 
-    function interval(cb) {
+    function tick(cb) {
         (window.requestAnimationFrame ||
         window.webkitRequestAnimationFrame ||
         window.mozRequestAnimationFrame ||

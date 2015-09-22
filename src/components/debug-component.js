@@ -1,7 +1,7 @@
 /**
  * Example component to render a debug switcher
  */
-define('debug-component', ['virtual-dom/h', 'i18n', 'request', 'leave'], function (require, module, exports, h, i18n, request, leave) {
+define('debug-component', ['virtual-dom/h', 'i18n', 'request'], function (require, module, exports, h, i18n, request) {
     "use strict";
 
     var toggle = 'false';
@@ -15,11 +15,13 @@ define('debug-component', ['virtual-dom/h', 'i18n', 'request', 'leave'], functio
     var debugComponent = function debugComponent() {
 
         return h('div', {
-                className: 'component debug-component'
+                className: 'component debug-component',
+                attributes: {
+                    'data-title': 'DebugComponent'
+                }
             }, [
                 h('a', {
                     href: buildHref(),
-                    onclick: leave,
                 }, [i18n('debug.toggle', i18n('debug.toggle-on-' + toggle))])
             ]);
     };

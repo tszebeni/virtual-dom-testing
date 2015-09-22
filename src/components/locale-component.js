@@ -14,7 +14,10 @@ define('locale-component', ['virtual-dom/h', 'i18n', 'message-source'], function
                 },
                 onclick: function (event) {
                     messageSource.setLocale(locale);
-                    event.preventDefault();
+                    if (history && history.pushState) {
+                        history.pushState(null, null, this.href);
+                        event.preventDefault();
+                    }
                 },
                 className: (activeLocale === locale ? 'active':''),
                 href: '?locale=' + locale
@@ -25,8 +28,11 @@ define('locale-component', ['virtual-dom/h', 'i18n', 'message-source'], function
 
     function localeComponent() {
 
-        return h('main', {
-                className: 'component locale-component'
+        return h('div', {
+                className: 'component locale-component',
+                attributes: {
+                    'data-title': 'LocaleComponent'
+                }
             }, [
                 locales.map(locale)
             ]);
