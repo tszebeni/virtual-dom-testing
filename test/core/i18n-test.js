@@ -1,5 +1,13 @@
 describe('i18n-test.js', function () {
     var i18n = require('i18n');
+    var messageSource = require('message-source');
+
+    beforeEach(function () {
+        messageSource['en'] = {
+            'test.key': 'Test key value',
+            'test.key1': 'Test key value {0}'
+        };
+    });
 
     it('should be a function', function () {
         expect(typeof i18n === 'function').toBeTruthy();

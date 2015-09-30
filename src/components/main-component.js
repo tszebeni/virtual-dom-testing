@@ -16,15 +16,9 @@ define('main-component', ['virtual-dom/h', 'i18n'], function (require, module, e
         }, [
             h('p', [
                 i18n('welcome.message'),
-                countdownComponent(state.comp1 || (state.comp1 = {
-                    time: 10
-                })),
-                countdownComponent(state.comp2 || (state.comp2 = {
-                    time: 14
-                })),
-                countdownComponent(state.comp3 || (state.comp3 = {
-                    time: 32
-                }))
+                countdownComponent(state.get('timer1')),
+                countdownComponent(state.get('timer2')),
+                countdownComponent(state.get('timer3'))
             ])
         ]);
     }
