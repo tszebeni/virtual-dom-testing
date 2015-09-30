@@ -16,9 +16,9 @@ define('component-registry', ['virtual-dom/h', 'request'], function (require, mo
 
     var components = {
         "homepage": function (state) {
-            var headerComponent = require('header-component')(state.header || (state.header = {}));
-            var mainComponent = require('main-component')(state.main || (state.main = {}));
-            var footerComponent = require('footer-component')(state.footer || (state.footer = {}));
+            var headerComponent = require('header-component')(state.get('header'));
+            var mainComponent = require('main-component')(state.get('main'));
+            var footerComponent = require('footer-component')(state.get('footer'));
 
             return container([headerComponent, mainComponent, footerComponent]);
         }

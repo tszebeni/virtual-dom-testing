@@ -19,7 +19,7 @@ define('countdown-component', ['virtual-dom/h', 'i18n'], function (require, modu
         return h('div',{
             className: 'component countdown-component',
             attributes: {
-                'data-time': state.time
+                'data-title': 'DebugComponent'
             }
         }, [
             h('p', [
