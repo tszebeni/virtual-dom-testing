@@ -34,8 +34,7 @@ define('message-source', ['format','request', 'global'], function (require, modu
         }).then(function (response) {
             messageSource[locale_] = JSON.parse(response);
             locale = locale_;
-            var i18n = require('i18n');
-            i18n.reset();
+            require('i18n').reset();
         }, function () {
             assert(locale !== defaultLocale, 'Failed to load translations for defaultLocale: ' + defaultLocale);
         });

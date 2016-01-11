@@ -13,19 +13,32 @@ define('component-registry', ['virtual-dom/h', 'request'], function (require, mo
         }));
     }
 
+    var headerComponent;
+    var mainComponent;
+    var component;
+    var grid;
+    var footerComponent;
+
+    function init() {
+        headerComponent = new (require('header-component'));
+        mainComponent = new (require('main-component'));
+        component = new (require('component'));
+        grid = new (require('grid-component'));
+        footerComponent = new (require('footer-component'));
+    }
+
+
 
     var components = {
         "homepage": function (state) {
-            var headerComponent = require('header-component')(state.get('header'));
-            var mainComponent = require('main-component')(state.get('main'));
-            var footerComponent = require('footer-component')(state.get('footer'));
-
-            return container([headerComponent, mainComponent, footerComponent]);
+            return container([headerComponent.render(), mainComponent.render(), component.render(),grid.render(), footerComponent.render()]);
         }
     };
 
     module.exports = {
         render: function (component, state) {
+            init();
+            init = function () {};
             assert(component && components[component], 'Failed to load component: ' + component);
             return components[component](state);
         }

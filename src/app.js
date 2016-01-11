@@ -1,11 +1,12 @@
 /**
  * Bootstrap logic for our app
  */
-define('app', ['virtual-dom/h', 'virtual-dom/diff','virtual-dom/patch','virtual-dom/create', 'component-registry', 'state'], function (require, module, exports, h, diff, patch, create, componentRegistry, state) {
+define('app', ['virtual-dom/h', 'virtual-dom/diff','virtual-dom/patch','virtual-dom/create', 'component-registry', 'state'], function (require, module, exports, h, diff, patch, create, componentRegistry, State) {
     "use strict";
     var container = document.querySelector('.page');
     var finished = false;
     var tree, rootNode;
+    var state = new State('root');
 
     function render() {
         return componentRegistry.render('homepage', state);
@@ -24,7 +25,7 @@ define('app', ['virtual-dom/h', 'virtual-dom/diff','virtual-dom/patch','virtual-
             var patches = diff(tree, newTree);
             rootNode = patch(rootNode, patches);
             tree = newTree;
-            tick(updatePage);
+            //tick(updatePage);
         }
     }
 

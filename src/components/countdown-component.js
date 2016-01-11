@@ -1,32 +1,25 @@
 /**
  * Example component to render a countdown widget
  */
-define('countdown-component', ['virtual-dom/h', 'i18n'], function (require, module, exports, h, i18n) {
+define('countdown-component', ['virtual-dom/h','component', 'i18n', 'timer'], function (require, module, exports, h, Component, i18n, Timer) {
     "use strict";
 
-    function countdownComponent(state) {
-        if (!state.timer) {
-            state.timer = setInterval(function () {
-                if (state.time === 0) {
-                    clearInterval(state.timer);
-                    state.timer = null;
-                    return;
-                }
-                state.time--;
-            }, 1000);
+    var CountdownComponent = Component.create('countdown-component', {
+        init: function () {
+            this.timer = new Timer('timer1', this.options.time);
+            this.startTimer();
+        },
+        startTimer: function () {
+            this.timer.start();
+        },
+        renderContents: function () {
+            return [
+                h('p', [
+                    i18n('countdown.remaining', this.timer.get())
+                ])
+            ];
         }
+    });
 
-        return h('div',{
-            className: 'component countdown-component',
-            attributes: {
-                'data-title': 'DebugComponent'
-            }
-        }, [
-            h('p', [
-                i18n('countdown.remaining', state.time)
-            ])
-        ]);
-    }
-
-    module.exports = countdownComponent;
+    module.exports = CountdownComponent;
 });

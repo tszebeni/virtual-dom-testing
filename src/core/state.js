@@ -8,13 +8,21 @@ define('state', ['request', 'format'], function (require, module, exports, reque
     var State = function State(key) {
         this.key = key;
         this.states_ = {};
+        this.data = {};
         this.promise = this.fetch();
         var state = this;
         this.promise.then(function (result) {
             var json = JSON.parse(result);
             Object.keys(json).forEach(function (key) {
-                state[key] = json[key];
+                state.data[key] = json[key];
             });
+        });
+        Object.observe(this.data,function (){
+            var app = require('app');
+            try {
+                app.update();
+            } catch (e){
+            }
         });
     };
 
@@ -26,19 +34,19 @@ define('state', ['request', 'format'], function (require, module, exports, reque
                 return Promise.resolve('{}');
             }
         },
-        get: function (key) {
+        create: function (key) {
             if (!this.states_[key]) {
                 this.states_[key] = new State(key);
             }
             return this.states_[key];
         },
         clear: function () {
-            this.props_ = {};
+            this.data = {};
             this.states_.forEach(function () {
                 this.clear();
             });
         }
     };
 
-    module.exports = new State();
+    module.exports = State;
 });
