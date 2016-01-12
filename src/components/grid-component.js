@@ -1,7 +1,7 @@
 /**
  * Example component to render a grid block
  */
-define('grid-component', ['virtual-dom/h', 'component'], function (require, module, exports, h, Component) {
+define('grid-component', ['deps/h', 'component'], function (require, module, exports, h, Component) {
     "use strict";
 
     var GridComponent = Component.create('grid-component', {});

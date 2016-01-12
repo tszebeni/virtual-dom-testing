@@ -1,7 +1,7 @@
 /**
  * Example component to render a countdown widget
  */
-define('countdown-component', ['virtual-dom/h','component', 'i18n', 'timer'], function (require, module, exports, h, Component, i18n, Timer) {
+define('countdown-component', ['deps/h','component', 'i18n', 'timer'], function (require, module, exports, h, Component, i18n, Timer) {
     "use strict";
 
     var CountdownComponent = Component.create('countdown-component', {

@@ -1,7 +1,7 @@
 /**
  * Example component to render a header
  */
-define('header-component', ['virtual-dom/h', 'i18n', 'component'], function (require, module, exports, h, i18n, Component) {
+define('header-component', ['deps/h', 'i18n', 'component'], function (require, module, exports, h, i18n, Component) {
     "use strict";
 
     var HeaderComponent = Component.create('header-component', {

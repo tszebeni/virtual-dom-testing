@@ -1,7 +1,7 @@
 /**
  * Example component to render a text block
  */
-define('html-component', ['virtual-dom/h', 'i18n', 'component', 'html2hscript'], function (require, module, exports, h, i18n, Component, html2hscript) {
+define('html-component', ['deps/h', 'i18n', 'component', 'deps/hscript', 'deps/xss'], function (require, module, exports, h, i18n, Component, html2hscript, xss) {
     "use strict";
 
     var HTMLComponent = Component.create('html-component', {
@@ -17,7 +17,7 @@ define('html-component', ['virtual-dom/h', 'i18n', 'component', 'html2hscript'],
                 };
             this.html = this.options.html || '';
             this.safe = this.options.safe || false;
-            html2hscript.convert(this.sanitize(this.html), function (err, hscript) {
+            html2hscript(this.sanitize(this.html), function (err, hscript) {
                 if (!err) {
                     this.html = hscript;
                     try {
@@ -28,7 +28,7 @@ define('html-component', ['virtual-dom/h', 'i18n', 'component', 'html2hscript'],
         },
         sanitize: function (html) {
             if (!this.safe) {
-                return html2hscript.xss(html, this.options.xss);
+                return xss(html, this.options.xss);
             }
             return html;
         },

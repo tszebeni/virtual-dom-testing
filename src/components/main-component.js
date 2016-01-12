@@ -1,7 +1,7 @@
 /**
  * Example component to render a main block
  */
-define('main-component', ['virtual-dom/h', 'i18n', 'component'], function (require, module, exports, h, i18n, Component) {
+define('main-component', ['deps/h', 'i18n', 'component'], function (require, module, exports, h, i18n, Component) {
     "use strict";
 
     var MainComponent = Component.create('main-component', {

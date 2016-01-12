@@ -1,7 +1,7 @@
 /**
  * Component Registry logic
  */
-define('component-registry', ['virtual-dom/h', 'request'], function (require, module , exports, h, request) {
+define('component-registry', ['deps/h', 'request'], function (require, module , exports, h, request) {
     "use strict";
 
     function container(elements) {

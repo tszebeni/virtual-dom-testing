@@ -1,7 +1,7 @@
 /**
  * Example component to render a debug switcher
  */
-define('debug-component', ['virtual-dom/h', 'i18n', 'request', 'component'], function (require, module, exports, h, i18n, request, Component) {
+define('debug-component', ['deps/h', 'i18n', 'request', 'component'], function (require, module, exports, h, i18n, request, Component) {
     "use strict";
 
     var DebugComponent = Component.create('debug-component', {

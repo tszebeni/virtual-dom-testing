@@ -1,7 +1,7 @@
 /**
  * Component Registry logic
  */
-define('component', ['virtual-dom/h'], function (require, module , exports, h) {
+define('component', ['deps/h'], function (require, module , exports, h) {
     "use strict";
 
     var Component = function Component(options) {

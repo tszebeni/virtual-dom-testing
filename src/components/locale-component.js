@@ -1,7 +1,7 @@
 /**
  * Example component to render a locale switcher
  */
-define('locale-component', ['virtual-dom/h', 'i18n', 'message-source', 'component'], function (require, module, exports, h, i18n, messageSource, Component) {
+define('locale-component', ['deps/h', 'i18n', 'message-source', 'component'], function (require, module, exports, h, i18n, messageSource, Component) {
     "use strict";
 
     var locales = messageSource.locales;
