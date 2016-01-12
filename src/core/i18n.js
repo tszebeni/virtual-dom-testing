@@ -15,7 +15,10 @@ define('i18n', ['format', 'message-source'], function (require, module, exports,
 
     var reset = function reset() {
         messages = {};
-        require('app').update();
+        try{
+            require('app').update();
+        } catch (e) {}
+
     };
 
     module.exports = resolve;

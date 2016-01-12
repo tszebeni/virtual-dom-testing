@@ -35,6 +35,7 @@ define('timer', ['state'], function (require, module, exports, State) {
                 this.decrement();
             }.bind(this), 1000);
         }
+        return this;
     };
 
     module.exports = Timer;

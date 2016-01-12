@@ -5,6 +5,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "virtual-dom": "^2.0.1"
+    "html2hscript": "^1.2.2",
+    "virtual-dom": "^2.0.1",
+    "xss": "^0.2.10"
   }
 }
