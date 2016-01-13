@@ -35,19 +35,20 @@ define('request', [], function (require, module) {
 
     function request(url, opts) {
         assert(!!Promise, 'Promise API is not available');
+        opts = opts || {};
 
-        if (opts && opts.data) {
+        if (opts.data) {
             url = url + '?' + paramEncode(opts.data);
         }
 
-        if (opts && opts.cache) {
+        if (opts.cache) {
             if (cache[url]) {
                 return cache[url];
             }
         }
 
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', encodeURI(url));
+        xhr.open(opts.method || 'GET', encodeURI(url));
 
         var promise = new Promise(function (resolve, reject) {
             xhr.onload = function() {
@@ -59,11 +60,9 @@ define('request', [], function (require, module) {
             };
             xhr.send();
         });
-
-        if (opts && opts.cache) {
+        if (opts.cache && opts.method !== 'POST') {
             cache[url] = promise;
         }
-
         return promise;
     }
 

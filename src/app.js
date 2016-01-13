@@ -1,15 +1,14 @@
 /**
  * Bootstrap logic for our app
  */
-define('app', ['deps/h', 'deps/diff','deps/patch','deps/create', 'component-registry', 'state'], function (require, module, exports, h, diff, patch, create, componentRegistry, State) {
+define('app', ['deps/h', 'deps/diff','deps/patch','deps/create', 'page-registry'], function (require, module, exports, h, diff, patch, create, pageRegistry) {
     "use strict";
     var container = document.querySelector('.page');
     var finished = false;
     var tree, rootNode;
-    var state = new State('root');
 
     function render() {
-        return componentRegistry.render('homepage', state);
+        return pageRegistry.render('homepage');
     }
 
     function renderPage() {
