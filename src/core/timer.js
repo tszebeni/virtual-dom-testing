@@ -5,11 +5,11 @@ define('timer', ['state'], function (require, module, exports, State) {
 
     var Timer = function Timer(name, startFrom) {
         this.state = new State(name);
-        this.state.promise.then(function () {
-            if (startFrom) {
-                this.set(startFrom);
-            }
-        }.bind(this));
+        if (!startFrom) {
+            this.state.fetch();
+        } else {
+            this.set(startFrom);
+        }
     };
 
     Timer.prototype.get = function () {

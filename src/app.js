@@ -1,11 +1,12 @@
 /**
  * Bootstrap logic for our app
  */
-define('app', ['deps/h', 'deps/diff','deps/patch','deps/create', 'page-registry'], function (require, module, exports, h, diff, patch, create, pageRegistry) {
+define('app', ['deps/h', 'deps/diff','deps/patch','deps/create', 'page-registry', 'functions/debounce'], function (require, module, exports, h, diff, patch, create, pageRegistry, debounce) {
     "use strict";
-    var container = document.querySelector('.page');
+
     var finished = false;
     var tree, rootNode;
+    var container;
 
     function render() {
         return pageRegistry.render('homepage');
@@ -24,39 +25,31 @@ define('app', ['deps/h', 'deps/diff','deps/patch','deps/create', 'page-registry'
             var patches = diff(tree, newTree);
             rootNode = patch(rootNode, patches);
             tree = newTree;
-            //tick(updatePage);
+            // to seamless auto update: require("functions/tick")(updatePage);
         }
     }
 
-    function tick(cb) {
-        (window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.oRequestAnimationFrame ||
-        window.msRequestAnimationFrame ||
-        function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element ) {
-            window.setTimeout( callback, 1000 / 60 );
-        }) (cb);
-    }
-
-    var update = function update() {
+    function load () {
+        container = document.querySelector('.page');
         try {
-            updatePage();
+            renderPage();
         } catch(e) {
             console.log(e);
+            throw e;
         }
-    };
-
-    try {
-        renderPage();
-    } catch(e) {
-        console.log(e);
-        throw e;
     }
 
-    exports.leave = function () {
-        finished = true; // hook to stop rerendering the page on demand
-    };
-    exports.update = update;
+    var update = debounce(function update() {
+        updatePage();
+    }, 15);
 
+    module.exports = {
+        leave: function () {
+            finished = true; // hook to stop rerendering the page on demand
+        },
+        update: update
+    };
+
+    load();
+    //document.addEventListener("DOMContentLoaded", load);
 });

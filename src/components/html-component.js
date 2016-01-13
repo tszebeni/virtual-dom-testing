@@ -1,5 +1,5 @@
 /**
- * Example component to render a text block
+ * Example component to render a custom html component with xss protection
  */
 define('html-component', ['deps/h', 'i18n', 'merge','component', 'deps/hscript', 'deps/xss'], function (require, module, exports, h, i18n, merge, Component, html2hscript, xss) {
     "use strict";
