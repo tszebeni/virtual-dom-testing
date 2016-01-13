@@ -8,13 +8,15 @@ define('debug-component', ['deps/h', 'i18n', 'request', 'component'], function (
         init: function () {
             this.toggle = false;
         },
-        renderContents: function () {
-            return [
-                h('a', {
-                    href: this.buildHref()
-                }, [i18n('debug.toggle', i18n('debug.toggle-on-' + this.toggle))])
-            ];
-        },
+        contents: [
+            function () {
+                return [
+                    h('a', {
+                        href: this.buildHref()
+                    }, [i18n('debug.toggle', i18n('debug.toggle-on-' + this.toggle))])
+                ];
+            }
+        ],
         buildHref: function () {
             var params = JSON.parse(JSON.stringify(request.params));
             this.toggle = params.debug = params.debug === 'true'?'false':'true';

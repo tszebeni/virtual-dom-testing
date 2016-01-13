@@ -49,7 +49,6 @@ define('request', [], function (require, module) {
 
         var xhr = new XMLHttpRequest();
         xhr.open(opts.method || 'GET', encodeURI(url));
-
         var promise = new Promise(function (resolve, reject) {
             xhr.onload = function() {
                 if (xhr.status === 200) {
@@ -58,8 +57,8 @@ define('request', [], function (require, module) {
                     reject('', xhr);
                 }
             };
-            xhr.send();
         });
+        xhr.send();
         if (opts.cache && opts.method !== 'POST') {
             cache[url] = promise;
         }

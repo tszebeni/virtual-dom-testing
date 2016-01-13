@@ -10,9 +10,11 @@ define('main-component', ['deps/h', 'i18n', 'component'], function (require, mod
 
     var MainComponent = Component.create('main-component', {
         contents: [
-            h('div', [
-                i18n('welcome.message')
-            ]),
+            function () {
+                return h('div', [
+                    i18n('welcome.message')
+                ]);
+            },
             new CountdownComponent(),
             new CountdownComponent({
                 time: 60 * 60 * 10

@@ -5,9 +5,6 @@ define('html-component', ['deps/h', 'i18n', 'merge','component', 'deps/hscript',
     "use strict";
 
     var defaults = {
-        html: '',
-        hscript: '',
-        safe: false,
         xss: {
             whiteList: {
                 div:[],span: [],strong:[],
@@ -21,7 +18,7 @@ define('html-component', ['deps/h', 'i18n', 'merge','component', 'deps/hscript',
 
     var HTMLComponent = Component.create('html-component', {
         init: function () {
-            this.options = merge(defaults, this.options);
+            this.options = merge({}, defaults, this.options);
             html2hscript(this.sanitize(this.options.html), function (err, hscript) {
                 if (!err) {
                     this.hscript = hscript;
@@ -32,7 +29,7 @@ define('html-component', ['deps/h', 'i18n', 'merge','component', 'deps/hscript',
             }.bind(this));
         },
         sanitize: function (html) {
-            if (!this.safe) {
+            if (!this.options.safe) {
                 return xss(html, this.options.xss);
             }
             return html;

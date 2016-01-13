@@ -5,11 +5,13 @@ define('text-component', ['deps/h', 'i18n', 'component'], function (require, mod
     "use strict";
 
     var TextComponent = Component.create('text-component', {
-        renderContents: function () {
-            return [
-                this.options.text
-            ];
-        }
+        contents: [
+            function () {
+                return [
+                    this.options.text
+                ];
+            }
+        ]
     });
 
     module.exports = TextComponent;

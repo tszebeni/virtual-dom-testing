@@ -1,7 +1,7 @@
 /**
  * Component Registry logic
  */
-define('component', ['deps/h'], function (require, module , exports, h) {
+define('component', ['deps/h', 'merge'], function (require, module , exports, h, merge) {
     "use strict";
 
     var Component = function Component(options) {
@@ -18,18 +18,22 @@ define('component', ['deps/h'], function (require, module , exports, h) {
             return this.contents.map(function (component) {
                 if (!!component.render) {
                     return component.render();
-                } else {
+                } else if (typeof component === 'function') {
+                    return component.call(this);
+                }else {
                     return component;
                 }
-            });
+            }.bind(this));
         },
         render: function () {
-            return h(this.tagName,{
+            var options = {
                 className: this.classNames,
                 attributes: {
                     'data-title': this.class
                 }
-            }, this.renderContents());
+            };
+            merge(options, this.events, this.options.events);
+            return h(this.tagName, options, this.renderContents());
         }
     };
 

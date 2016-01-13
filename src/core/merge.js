@@ -5,10 +5,13 @@ define('merge', [], function (require, module, exports) {
     "use strict";
 
     function mergeInternal(a, b) {
+        if (a && !b) {
+            return b;
+        }
         if (a === b) {
             return a;
         }
-        if (b.type && b.type === 'VirtualNode') {
+        if (b && b.type && b.type === 'VirtualNode') {
             a = b;
             return a;
         }
@@ -16,7 +19,7 @@ define('merge', [], function (require, module, exports) {
             if (!a[key]) {
                 a[key] = b[key];
             } else {
-                mergeInternal(a[key], b[key]);
+                a[key] = mergeInternal(a[key], b[key]);
             }
         });
         return a;

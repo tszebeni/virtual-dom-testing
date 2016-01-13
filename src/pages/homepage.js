@@ -1,7 +1,7 @@
 /**
  * Example component to render a homepage
  */
-define('homepage', ['deps/h', 'component', 'page-registry'], function (require, module, exports, h, Component, pageRegistry) {
+define('homepage', ['component', 'page-registry'], function (require, module, exports, Component, pageRegistry) {
     "use strict";
 
     var HeaderComponent = require('header-component');

@@ -6,9 +6,13 @@ define('footer-component', ['deps/h', 'i18n', 'component'], function (require, m
 
     var FooterComponent = Component.create('footer-component', {
         contents: [
-            h('p', [
-                i18n('footer.copyright', '2015')
-            ])
+            function () {
+                return [
+                    h('p', [
+                        i18n('footer.copyright', '2015')
+                    ])
+                ];
+            }
         ]
     });
 
