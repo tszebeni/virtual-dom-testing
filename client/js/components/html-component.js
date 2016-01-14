@@ -7,9 +7,9 @@ define('html-component', ['deps/h', 'i18n', 'functions/merge','component', 'deps
     var defaults = {
         xss: {
             whiteList: {
-                div:[],span: [],strong:[],
-                b: [],i: [],
-                h1: [], h2:[],h3:[],h4:[],h5:[]
+                div:['title'],span: ['title'],strong:['title'],
+                b: ['title'],i: ['title'],
+                h1: ['title'], h2:['title'],h3:['title'],h4:['title'],h5:['title']
             },
             stripIgnoreTag: true,
             stripIgnoreTagBody: ['script']

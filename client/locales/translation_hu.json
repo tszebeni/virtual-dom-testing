@@ -5,6 +5,7 @@
     "debug.toggle-on-true": "Be",
     "debug.toggle-on-false": "Ki",
     "welcome.message": "Üdvözöllek az oldalon",
+    "grid.intro": "Nézd ezt az elrendezést, ez itt egy grid komponens:",
     "footer.copyright": "Védjegy \u00A9 {0}",
     "countdown.remaining": "Hátralévő idő: {0}"
 }

@@ -16,6 +16,15 @@ define('main-component', ['deps/h', 'i18n', 'component'], function (require, mod
                     i18n('welcome.message')
                 ]);
             },
+            function () {
+                return h('div', {
+                    style: {
+                        marginTop: '10px'
+                    }
+                },[
+                    i18n('grid.intro')
+                ]);
+            },
             new GridComponent({
                 slots: [
                     {'class': 'col-5', contents: [
@@ -35,7 +44,7 @@ define('main-component', ['deps/h', 'i18n', 'component'], function (require, mod
                 ]
             }),
             new HTMLComponent({
-                html: '<div>Lorem <i>ipsum...</i><img js=x onerror=alert(\'hey!\')></div>'
+                html: '<div>Custom html component <strong title="you can have titles also!">which</strong> contains <i>formatting</i> and secured against xss attacks...<img js=x onerror=alert(\'hey!\')></div>'
             })
         ]
     });

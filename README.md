@@ -7,6 +7,9 @@ Dependencies packaged together with browserify and uglify (around 33kb):
 - [JS XSS library](https://github.com/leizongmin/js-xss).
 - optional dependency to render html to hscript (around 129kb): [html2hscript library](https://github.com/twilson63/html2hscript)
     - in case you omit it, it falls back to nodejs service with jsonp.
+- optional polyfills are used to provide wider browser support:
+    - [Promise polyfill from Jake Archibald](https://github.com/jakearchibald/es6-promise)
+    - [Object.observe lite version from MaxArt2501](https://github.com/MaxArt2501/object-observe)
 
 The code also contains a simple AMD module loader built to work with this specific project.
 
