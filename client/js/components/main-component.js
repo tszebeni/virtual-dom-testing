@@ -7,6 +7,7 @@ define('main-component', ['deps/h', 'i18n', 'component'], function (require, mod
     var CountdownComponent = require('countdown-component');
     var TextComponent = require('text-component');
     var HTMLComponent = require('html-component');
+    var GridComponent = require('grid-component');
 
     var MainComponent = Component.create('main-component', {
         contents: [
@@ -15,15 +16,23 @@ define('main-component', ['deps/h', 'i18n', 'component'], function (require, mod
                     i18n('welcome.message')
                 ]);
             },
-            new CountdownComponent(),
-            new CountdownComponent({
-                time: 60 * 60 * 10
-            }),
-            new CountdownComponent({
-                time: 60 * 10
-            }),
-            new TextComponent({
-                text: 'Lorem ipsum...'
+            new GridComponent({
+                slots: [
+                    {'class': 'col-5', contents: [
+                        new CountdownComponent(),
+                        new CountdownComponent({
+                            time: 60 * 60 * 10
+                        })
+                    ]},
+                    {'class': 'col-7', contents: [
+                        new CountdownComponent({
+                            time: 60 * 10
+                        }),
+                        new TextComponent({
+                            text: 'Lorem ipsum...'
+                        })
+                    ]}
+                ]
             }),
             new HTMLComponent({
                 html: '<div>Lorem <i>ipsum...</i><img js=x onerror=alert(\'hey!\')></div>'
