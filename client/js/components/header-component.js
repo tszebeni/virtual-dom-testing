@@ -9,7 +9,7 @@ define('header-component', ['deps/h', 'i18n', 'component', 'locale-component', '
             function () {
                 return h('h1', [
                     i18n('header.message')
-                ])
+                ]);
             },
             new LocaleComponent(),
             new DebugComponent()

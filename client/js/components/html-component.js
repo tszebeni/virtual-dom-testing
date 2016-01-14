@@ -35,6 +35,7 @@ define('html-component', ['deps/h', 'i18n', 'functions/merge','component', 'deps
             return html;
         },
         renderContents: function () {
+	    /*jshint evil:true */
             return eval(this.hscript);
         }
     });

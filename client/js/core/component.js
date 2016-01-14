@@ -41,6 +41,7 @@ define('component', ['deps/h', 'functions/merge'], function (require, module , e
         var Child = function () {
             Component.apply(this, arguments);
             this.class = claz;
+            /*jshint -W030 */
             this.init && this.init();
         };
         Child.prototype = Object.create(Component.prototype);

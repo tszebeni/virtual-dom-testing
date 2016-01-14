@@ -17,7 +17,8 @@ define('timer', ['state'], function (require, module, exports, State) {
     };
 
     Timer.prototype.set = function (time) {
-        return this.state.data.time = time;
+        this.state.data.time = time;
+        return this;
     };
 
     Timer.prototype.decrement = function () {
