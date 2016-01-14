@@ -9,6 +9,7 @@
 <body>
 
     <div class="page"></div>
+    <div id="script-cache"></div>
 
     <!-- base module loading -->
     <script src="src/core/assert.js"></script>
@@ -16,23 +17,26 @@
     <script src="src/core/global.js"></script>
 
     <script src="src/core/functions.js"></script>
+    <script src="src/core/merge.js"></script>
 
     <!-- ajax -->
     <script src="src/core/request.js"></script>
+    <script src="src/core/jsonp.js"></script>
 
     <!-- I18n -->
     <script src="src/core/format.js"></script>
     <script src="src/core/message-source.js"></script>
     <script src="src/core/i18n.js"></script>
-
     <!-- state -->
     <script src="src/core/state.js"></script>
     <script src="src/core/timer.js"></script>
 
-    <script src="src/core/merge.js"></script>
+    <!-- virtual-dom xss integration -->
+    <script src="dependencies/deps.min.js"></script>
+    <!-- html2hscript integration -->
+    <!-- script src="dependencies/deps.optional.min.js"></script -->
+    <script src="src/core/hscript.js"></script>
 
-    <!-- virtual-dom, html2hscript and xss integration -->
-    <script src="deps.min.js"></script>
     <script src="src/core/dependencies.js"></script>
 
     <!-- graceful exit -->

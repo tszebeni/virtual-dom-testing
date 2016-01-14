@@ -1,5 +1,6 @@
 /**
  * Merge object's properties
+ * TODO: move to functions
  */
 define('merge', [], function (require, module, exports) {
     "use strict";

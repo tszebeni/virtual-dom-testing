@@ -1,18 +1,25 @@
 /**
  * Integration module for third party dependencies
  */
-define('deps', ['anonymous0'], function (require, module, exports, dependencies) {
+define('deps', ['anonymous0', 'hscript'], function (require, module, exports, deps, hscript) {
     "use strict";
 
     var assertionMessage = 'Dependencies should have the following api: {h:(),diff:(),patch:(),create:(), convert:(),xss:()}';
 
-    assert(dependencies.h, assertionMessage);
-    assert(dependencies.diff, assertionMessage);
-    assert(dependencies.patch, assertionMessage);
-    assert(dependencies.create, assertionMessage);
+    assert(deps.h, assertionMessage);
+    assert(deps.diff, assertionMessage);
+    assert(deps.patch, assertionMessage);
+    assert(deps.create, assertionMessage);
+    assert(deps.xss, assertionMessage);
+    assert(hscript, assertionMessage);
 
-    assert(dependencies.hscript, assertionMessage);
-    assert(dependencies.xss, assertionMessage);
 
-    module.exports = dependencies;
+    module.exports = {
+        h: deps.h,
+        diff: deps.diff,
+        patch: deps.patch,
+        create: deps.create,
+        xss: deps.xss,
+        hscript: hscript
+    };
 });
