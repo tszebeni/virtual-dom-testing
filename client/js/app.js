@@ -47,9 +47,9 @@ define('app', ['deps/h', 'deps/diff','deps/patch','deps/create', 'page-registry'
         leave: function () {
             finished = true; // hook to stop rerendering the page on demand
         },
-        update: update
+        update: update,
+        start: function () {
+            load();
+        }
     };
-
-    load();
-    //document.addEventListener("DOMContentLoaded", load);
 });

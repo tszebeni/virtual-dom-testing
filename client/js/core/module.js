@@ -16,12 +16,21 @@
             assert(scoped.length === 3, 'Scoped require is only support for one level deep.');
             id = scoped[1];
             scope = scoped[2];
+            if (typeof modules[id] === 'function' && modules[id].type === 'factory') {
+                modules[id]();
+            }
             assert(modules[id], 'Required module [' + id + '] is missing');
             assert(modules[id][scope], 'Required module [' + scope + '] is missing from [' + id + ']');
+            if (typeof modules[id][scope] === 'function' && modules[id][scope].type === 'factory') {
+                modules[id][scope]();
+            }
             return modules[id][scope];
         }
 
         assert(modules[id], 'Required module [' + id + '] is missing');
+        if (typeof modules[id] === 'function' && modules[id].type === 'factory') {
+            modules[id]();
+        }
         return modules[id];
     };
 
@@ -38,16 +47,18 @@
         assert(id, 'Id for define is mandatory');
         assert(!modules[id], 'Attempt to redefine existing module!');
 
-        modules[id] = {};
-        var module = modules[id];
-        var exports = module.exports = {};
-        var resolvedDeps = deps.map(require);
-        var ret = factory.apply(global, [require, module, exports].concat(resolvedDeps));
+        modules[id] = (function (modules, id) { return function () {
+            var module = modules[id] = {};
+            var exports = module.exports = {};
+            var resolvedDeps = deps.map(require);
+            var ret = factory.apply(global, [require, module, exports].concat(resolvedDeps));
 
-        modules[id] = module.exports;
-        if (ret && exports === module.exports && Object.keys(exports).length === Object.keys(module.exports).length) {
-            modules[id] = ret;
-        }
+            modules[id] = module.exports;
+            if (ret && exports === module.exports && Object.keys(exports).length === Object.keys(module.exports).length) {
+                modules[id] = ret;
+            }
+        };})(modules, id);
+        modules[id].type = 'factory';
     };
 
     global.modules = modules;

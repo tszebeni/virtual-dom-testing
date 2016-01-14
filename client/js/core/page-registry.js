@@ -16,6 +16,7 @@ define('page-registry', ['deps/h'], function (require, module , exports, h) {
 
     module.exports = {
         build: function (component) {
+            require(component);
             assert(component && components[component], 'Failed to load component: ' + component);
             return components[component];
         },
