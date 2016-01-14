@@ -7,5 +7,5 @@ app.use(express.static('client'));
 app.use('/api/', require('./hscript.js'));
 
 app.listen(port, function () {
-    console.log('Example app listening on port ' + port + '.');
+    console.log('Virtual-dom testing app listening on port ' + port + '.');
 });

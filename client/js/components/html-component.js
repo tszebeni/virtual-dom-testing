@@ -1,7 +1,7 @@
 /**
  * Example component to render a custom html component with xss protection
  */
-define('html-component', ['deps/h', 'i18n', 'merge','component', 'deps/hscript', 'deps/xss'], function (require, module, exports, h, i18n, merge, Component, html2hscript, xss) {
+define('html-component', ['deps/h', 'i18n', 'functions/merge','component', 'deps/hscript', 'deps/xss'], function (require, module, exports, h, i18n, merge, Component, html2hscript, xss) {
     "use strict";
 
     var defaults = {

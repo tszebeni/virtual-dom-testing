@@ -1,7 +1,7 @@
 /**
  * Component Registry logic
  */
-define('component', ['deps/h', 'merge'], function (require, module , exports, h, merge) {
+define('component', ['deps/h', 'functions/merge'], function (require, module , exports, h, merge) {
     "use strict";
 
     var Component = function Component(options) {

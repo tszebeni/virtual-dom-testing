@@ -1,7 +1,7 @@
 /**
  * Integration module for third party dependencies
  */
-define('jsonp', ['merge', 'global'], function (require, module, exports, merge, global) {
+define('jsonp', ['functions/merge', 'global'], function (require, module, exports, merge, global) {
     "use strict";
 
     var defaults = {
