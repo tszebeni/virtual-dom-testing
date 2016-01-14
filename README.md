@@ -6,14 +6,14 @@ Dependencies packaged together with browserify and uglify (around 33kb):
 - [Virtual Dom library](https://github.com/Matt-Esch/virtual-dom) and
 - [JS XSS library](https://github.com/leizongmin/js-xss).
 - optional dependency to render html to hscript (around 129kb): [html2hscript library](https://github.com/twilson63/html2hscript)
--- in case you omit it, it falls back to nodejs service with jsonp.
+    - in case you omit it, it falls back to nodejs service with jsonp.
 
 The code also contains a simple AMD module loader built to work with this specific project.
 
-For trying it out, just check out and
-- do npm install
-- start a simple webser e.g. Python: python -m SimpleHTTPServer 8000
-- go to http://localhost:8000/src/index.html
+For trying it out, just check out and do
+- npm install
+- start node app: node server/server.js
+- go to http://localhost:8080/index.html
 
 Some example components:
 - DebugComponent: Trigger to switch to debug mode
@@ -44,16 +44,16 @@ Some core modules:
 - timer: state based counter which uses setInterval
 - dependencies: interface over virtual-dom and xss packaged via browserify
 
-Quick start:
+Quick start to modify:
 - clone this repo
 - hit npm install
 - npm install -g browserify
 - npm install -g uglifyjs
-- (optional)update dependencies:
--- browserify dependencies\main.js --standalone deps -o dependencies\deps.js
-   uglifyjs dependencies\deps.js --compress --mangle -o dependencies\deps.min.js
--- browserify dependencies\optional.js --standalone optional -o dependencies\deps.optional.js
-   uglifyjs dependencies\deps.optional.js --compress --mangle -o dependencies\deps.optional.min.js
-- start server app, which serves the files and provides the html2hscript service.
--- node server/server.js
-   
+- (optional)re-package dependencies (inside client/js):
+    - browserify dependencies\main.js --standalone deps -o dependencies\deps.js
+    - uglifyjs dependencies\deps.js --compress --mangle -o dependencies\deps.min.js
+    - browserify dependencies\optional.js --standalone optional -o dependencies\deps.optional.js
+    - uglifyjs dependencies\deps.optional.js --compress --mangle -o dependencies\deps.optional.min.js
+- start server app, which serves the files and provides the html2hscript service:
+    - node server/server.js
+- open http://localhost:8080/index.html   
