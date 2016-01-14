@@ -4,7 +4,10 @@
   "description": "",
   "author": "",
   "license": "ISC",
+  "main": "./server/server.js",
   "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
     "html2hscript": "^1.2.2",
     "virtual-dom": "^2.0.1",
     "xss": "^0.2.10"

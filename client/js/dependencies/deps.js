@@ -1833,7 +1833,7 @@ function safeAttrValue (tag, name, value, cssFilter) {
   value = friendlyAttrValue(value);
 
   if (name === 'href' || name === 'src') {
-    // 过滤 href 和 src 属性
+    // 过滤 href 和 js 属性
     // 仅允许 http:// | https:// | mailto: | / | # 开头的地址
     value = _.trim(value);
     if (value === '#') return '#';

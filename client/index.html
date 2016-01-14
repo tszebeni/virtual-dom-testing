@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Virtual Dom testing</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="page"></div>
+    <div id="script-cache"></div>
+
+    <!-- base module loading -->
+    <script src="js/core/assert.js"></script>
+    <script src="js/core/module.js"></script>
+    <script src="js/core/global.js"></script>
+
+    <script src="js/core/functions.js"></script>
+    <script src="js/core/merge.js"></script>
+
+    <!-- ajax -->
+    <script src="js/core/request.js"></script>
+    <script src="js/core/jsonp.js"></script>
+
+    <!-- I18n -->
+    <script src="js/core/format.js"></script>
+    <script src="js/core/message-source.js"></script>
+    <script src="js/core/i18n.js"></script>
+    <!-- state -->
+    <script src="js/core/state.js"></script>
+    <script src="js/core/timer.js"></script>
+
+    <!-- virtual-dom xss integration -->
+    <script src="js/dependencies/deps.min.js"></script>
+    <!-- html2hscript integration -->
+    <!-- script src="dependencies/deps.optional.min.js"></script -->
+    <script src="js/core/hscript.js"></script>
+    <script src="js/core/dependencies.js"></script>
+
+    <!-- graceful exit -->
+    <script src="js/core/leave.js"></script>
+
+    <!-- component registry -->
+    <script src="js/core/page-registry.js"></script>
+
+    <!-- components -->
+    <script src="js/core/component.js"></script>
+    <script src="js/components/text-component.js"></script>
+    <script src="js/components/html-component.js"></script>
+    <script src="js/components/grid-component.js"></script>
+    <script src="js/components/debug-component.js"></script>
+    <script src="js/components/locale-component.js"></script>
+    <script src="js/components/header-component.js"></script>
+
+    <script src="js/components/countdown-component.js"></script>
+    <script src="js/components/main-component.js"></script>
+    <script src="js/components/footer-component.js"></script>
+
+    <script src="js/pages/homepage.js"></script>
+
+    <!-- bootstrap -->
+    <script src="js/app.js"></script>
+</body>
+</html>
+

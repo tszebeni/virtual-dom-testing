@@ -26,7 +26,7 @@ define('main-component', ['deps/h', 'i18n', 'component'], function (require, mod
                 text: 'Lorem ipsum...'
             }),
             new HTMLComponent({
-                html: '<div>Lorem <i>ipsum...</i><img src=x onerror=alert(\'hey!\')></div>'
+                html: '<div>Lorem <i>ipsum...</i><img js=x onerror=alert(\'hey!\')></div>'
             })
         ]
     });
