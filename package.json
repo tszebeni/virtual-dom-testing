@@ -1,8 +1,9 @@
 {
   "name": "virtual-dom-testing",
   "version": "1.0.0",
-  "description": "",
-  "author": "",
+  "description": "virtual dom testing with basic examples",
+  "keywords": ["virtual", "virtual-dom", "virtualdom"],
+  "author": "Tamas Szebeni <khaliy@gmail.com>",
   "license": "ISC",
   "main": "./server/server.js",
   "dependencies": {

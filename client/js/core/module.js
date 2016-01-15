@@ -13,7 +13,7 @@
         var scope;
         var scoped = id.match(/(.*)\/(.*)/); // LOL Boobs
         if (scoped && scoped.length > 2) {
-            assert(scoped.length === 3, 'Scoped require is only support for one level deep.');
+            assert(scoped.length === 3, 'Scoped require is only supported for one level deep.');
             id = scoped[1];
             scope = scoped[2];
             if (typeof modules[id] === 'function' && modules[id].type === 'factory') {
@@ -60,10 +60,9 @@
         };})(modules, id);
         modules[id].type = 'factory';
     };
+    define.amd = true;
 
-    global.modules = modules;
     global.require = require;
     global.define = define;
-    global.define.amd = true;
 
 })(this);

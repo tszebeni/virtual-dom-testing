@@ -1,6 +1,7 @@
 # virtual-dom-testing
 
 Simple project to test the virtual dom without React by implementing various modules.
+![Dependencies](https://david-dm.org/khaliy/virtual-dom-testing.svg)
 
 Dependencies packaged together with browserify and uglify (around 33kb):
 - [Virtual Dom library](https://github.com/Matt-Esch/virtual-dom) and
@@ -36,7 +37,7 @@ Some core modules:
 - format: placeholder formatting support
 - functions: utility functions, like debounce, tried and merge
 - global: define global module as ´this´ in global scope
-- hscript: html to hscript converter, on the fly if optional dependency is included, otherwise via backend with jsonp 
+- hscript: html to hscript converter, on the fly if optional dependency is included, otherwise via backend with jsonp
 - i18n: message-source aware localisation utility
 - jsonp: to talk to servers in a cross origin manner
 - leave: detect page shutdown and stop re-rendering, interface over logic in app.js
@@ -59,4 +60,4 @@ Quick start to modify:
     - uglifyjs dependencies\deps.optional.js --compress --mangle -o dependencies\deps.optional.min.js
 - start server app, which serves the files and provides the html2hscript service:
     - node server/server.js
-- open http://localhost:8080/index.html   
+- open http://localhost:8080/index.html

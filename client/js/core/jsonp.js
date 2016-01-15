@@ -1,5 +1,5 @@
 /**
- * Integration module for third party dependencies
+ * Made JSONP call easy
  */
 define('jsonp', ['functions/merge', 'global'], function (require, module, exports, merge, global) {
     "use strict";
@@ -30,7 +30,6 @@ define('jsonp', ['functions/merge', 'global'], function (require, module, export
             document.getElementById('script-cache').innerHTML = null;
             if (global['callback' + uid]) {
                 delete global['callback' + uid];
-                global.callbackUID--;
             }
         });
         document.getElementById('script-cache').appendChild(scr);
