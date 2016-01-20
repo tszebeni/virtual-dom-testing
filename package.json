@@ -6,6 +6,9 @@
   "author": "Tamas Szebeni <khaliy@gmail.com>",
   "license": "ISC",
   "main": "./server/server.js",
+  "scripts": {
+    "start": "node ./server/server.js"
+  },
   "dependencies": {
     "body-parser": "^1.14.2",
     "express": "^4.13.3",
