@@ -4,7 +4,7 @@
 define('hscript', ['jsonp'], function (require, module, exports, jsonp) {
     "use strict";
 
-    var hscriptServer = '//localhost:8080/api/hscript.js';
+    var hscriptServer = '/api/hscript.js';
 
     function hscript_service(str, cb) {
         jsonp(hscriptServer, {
