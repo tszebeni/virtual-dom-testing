@@ -2,7 +2,7 @@
  * Bootstrap logic for our app
  */
 define('app', ['deps/h', 'deps/diff','deps/patch','deps/create', 'page-registry', 'functions/debounce'], function (require, module, exports, h, diff, patch, create, pageRegistry, debounce) {
-    "use strict";
+    'use strict';
 
     var finished = false;
     var tree, rootNode;
@@ -34,7 +34,6 @@ define('app', ['deps/h', 'deps/diff','deps/patch','deps/create', 'page-registry'
         try {
             renderPage();
         } catch(e) {
-            console.log(e);
             throw e;
         }
     }
@@ -45,7 +44,7 @@ define('app', ['deps/h', 'deps/diff','deps/patch','deps/create', 'page-registry'
 
     module.exports = {
         leave: function () {
-            finished = true; // hook to stop rerendering the page on demand
+            finished = true;
         },
         update: update,
         start: function () {

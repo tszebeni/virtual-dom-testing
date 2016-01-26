@@ -1,9 +1,10 @@
 /**
  * Message source for I18n logic, loads and holds translations
- * TODO: make it configurable
+ * TODO: make it more configurable
  * TODO: merge translations
  */
 define('message-source', ['format','request', 'global'], function (require, module, exports, format, request, global) {
+    'use strict';
 
     var supportedLocales = ['en', 'hu'];
     var defaultLocale = supportedLocales[0];
@@ -50,8 +51,9 @@ define('message-source', ['format','request', 'global'], function (require, modu
         }
     }
 
+
+    get.setLocale = setLocale;
+    get.locales = supportedLocales;
+    get.locale = locale;
     module.exports = get;
-    module.exports.setLocale = setLocale;
-    module.exports.locales = supportedLocales;
-    module.exports.locale = locale;
 });

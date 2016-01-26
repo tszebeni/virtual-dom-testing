@@ -2,7 +2,7 @@
  * Example component to render a homepage
  */
 define('homepage', ['component', 'page-registry'], function (require, module, exports, Component, pageRegistry) {
-    "use strict";
+    'use strict';
 
     var HeaderComponent = require('header-component');
     var MainComponent = require('main-component');

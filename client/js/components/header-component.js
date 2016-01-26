@@ -2,7 +2,7 @@
  * Example component to render a header
  */
 define('header-component', ['deps/h', 'i18n', 'component', 'locale-component', 'debug-component'], function (require, module, exports, h, i18n, Component, LocaleComponent, DebugComponent) {
-    "use strict";
+    'use strict';
 
     var HeaderComponent = Component.create('header-component', {
         contents:  [

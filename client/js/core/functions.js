@@ -1,7 +1,8 @@
 /**
  * Utility functions
  */
-define('functions', [], function (require, module, exports) {
+define('functions', [], function (require, module) {
+    'use strict';
 
     function debounce(fn, delay, scope) {
         var args;
@@ -24,7 +25,9 @@ define('functions', [], function (require, module, exports) {
         return function () {
             try{
                 cb();
-            } catch (e){}
+            } catch (e){
+                return;
+            }
         };
     }
 
@@ -34,7 +37,7 @@ define('functions', [], function (require, module, exports) {
         window.mozRequestAnimationFrame ||
         window.oRequestAnimationFrame ||
         window.msRequestAnimationFrame ||
-        function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element ) {
+        function( /* function FrameRequestCallback */ callback) {
             window.setTimeout( callback, 1000 / 60 );
         }) (cb);
     }
@@ -63,7 +66,6 @@ define('functions', [], function (require, module, exports) {
     function merge(){
         var args = [].slice.call(arguments);
         var len = args.length;
-        var i = 1;
         if (len <= 1) {
             return (len === 0 ? {} : args[0]);
         }

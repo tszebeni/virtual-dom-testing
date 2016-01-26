@@ -2,7 +2,7 @@
  * Component Registry logic
  */
 define('component', ['deps/h', 'functions/merge'], function (require, module , exports, h, merge) {
-    "use strict";
+    'use strict';
 
     var Component = function Component(options) {
         options = options || {};
@@ -10,13 +10,13 @@ define('component', ['deps/h', 'functions/merge'], function (require, module , e
         this.class = this.class || options.class || 'generic-component';
         this.tagName = this.tagName || options.tagName || 'div';
         this.contents = this.contents || options.contents || [''];
-        this.classNames = "component " + this.class;
+        this.classNames = 'component ' + this.class;
     };
 
     Component.prototype = {
         renderContents: function () {
             return this.contents.map(function (component) {
-                if (!!component.render) {
+                if (component.render) {
                     return component.render();
                 } else if (typeof component === 'function') {
                     return component.call(this);

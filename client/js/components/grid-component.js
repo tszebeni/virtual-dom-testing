@@ -2,7 +2,7 @@
  * Example component to render a grid block
  */
 define('grid-component', ['deps/h', 'component'], function (require, module, exports, h, Component) {
-    "use strict";
+    'use strict';
 
     var ColComponent = Component.create('col-component', {});
 

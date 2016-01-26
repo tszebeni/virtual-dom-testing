@@ -1,9 +1,8 @@
 /**
  * Simple AMD module loader which loads Browserified packages as well (third party virtual dom).
- * TODO: Promise based waitFor for not yet defined modules
  */
 (function (global) {
-    "use strict";
+    'use strict';
     var modules = {};
     var counter = 0;
 
@@ -11,7 +10,7 @@
         assert(id, 'id is mandatory for require');
         id = String(id);
         var scope;
-        var scoped = id.match(/(.*)\/(.*)/); // LOL Boobs
+        var scoped = id.match(/(.*)\/(.*)/);
         if (scoped && scoped.length > 2) {
             assert(scoped.length === 3, 'Scoped require is only supported for one level deep.');
             id = scoped[1];

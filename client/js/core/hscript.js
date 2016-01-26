@@ -2,7 +2,7 @@
  * Integration module for html to hscript script if included or use service
  */
 define('hscript', ['jsonp'], function (require, module, exports, jsonp) {
-    "use strict";
+    'use strict';
 
     var hscriptServer = '/api/hscript.js';
 

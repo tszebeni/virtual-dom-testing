@@ -2,6 +2,7 @@
  * State manager
  */
 define('state', ['request', 'format', 'functions/tried'], function (require, module, exports, request, format, tried) {
+    'use strict';
 
     var url = 'states/{0}.json'; // parameter: key attribute
 

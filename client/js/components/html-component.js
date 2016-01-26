@@ -2,7 +2,7 @@
  * Example component to render a custom html component with xss protection
  */
 define('html-component', ['deps/h', 'i18n', 'functions/merge','component', 'deps/hscript', 'deps/xss'], function (require, module, exports, h, i18n, merge, Component, html2hscript, xss) {
-    "use strict";
+    'use strict';
 
     var defaults = {
         xss: {
@@ -13,7 +13,8 @@ define('html-component', ['deps/h', 'i18n', 'functions/merge','component', 'deps
             },
             stripIgnoreTag: true,
             stripIgnoreTagBody: ['script']
-        }
+        },
+        safe: false
     };
 
     var HTMLComponent = Component.create('html-component', {
@@ -24,7 +25,9 @@ define('html-component', ['deps/h', 'i18n', 'functions/merge','component', 'deps
                     this.hscript = hscript;
                     try {
                         require('app').update();
-                    }catch (e) {}
+                    }catch (e) {
+                        return;
+                    }
                 }
             }.bind(this));
         },
@@ -35,7 +38,7 @@ define('html-component', ['deps/h', 'i18n', 'functions/merge','component', 'deps
             return html;
         },
         renderContents: function () {
-	    /*jshint evil:true */
+            /*eslint no-eval: 0*/
             return eval(this.hscript);
         }
     });

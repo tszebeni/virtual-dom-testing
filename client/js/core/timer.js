@@ -2,6 +2,7 @@
  * Timer
  */
 define('timer', ['state'], function (require, module, exports, State) {
+    'use strict';
 
     var Timer = function Timer(name, startFrom) {
         this.state = new State(name);

@@ -2,7 +2,7 @@
  * Integration module for third party dependencies
  */
 define('deps', ['anonymous0', 'hscript'], function (require, module, exports, deps, hscript) {
-    "use strict";
+    'use strict';
 
     var assertionMessage = 'Dependencies should have the following api: {h:(),diff:(),patch:(),create:(), convert:(),xss:()}';
 

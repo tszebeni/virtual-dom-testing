@@ -2,7 +2,7 @@
  * Made JSONP call easy
  */
 define('jsonp', ['functions/merge', 'global'], function (require, module, exports, merge, global) {
-    "use strict";
+    'use strict';
 
     var defaults = {
         url: '',

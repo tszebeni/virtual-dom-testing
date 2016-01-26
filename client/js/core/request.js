@@ -4,6 +4,7 @@
  * TODO: cover it by unittests
  */
 define('request', [], function (require, module) {
+    'use strict';
 
     var cache = {};
 

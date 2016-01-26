@@ -1,10 +1,10 @@
 /**
  * Simple parameter placeholder formatter.
- * TODO: add typeformatters
  */
-define('format', [], function (require, module, exports) {
+define('format', [], function (require, module) {
+    'use strict';
 
-    var format = function format(msg /*, parameters */) {
+    function format(msg /*, parameters */) {
         msg = String(msg);
         var parameters = Array.prototype.slice.call(arguments, 1);
         if (parameters.length) {
@@ -13,7 +13,7 @@ define('format', [], function (require, module, exports) {
             });
         }
         return msg;
-    };
+    }
 
     module.exports = format;
 });

@@ -2,7 +2,7 @@
  * Example component to render a main block
  */
 define('main-component', ['deps/h', 'i18n', 'component'], function (require, module, exports, h, i18n, Component) {
-    "use strict";
+    'use strict';
 
     var CountdownComponent = require('countdown-component');
     var TextComponent = require('text-component');

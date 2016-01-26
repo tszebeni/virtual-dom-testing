@@ -2,7 +2,7 @@
  * Page component registry logic
  */
 define('page-registry', ['deps/h'], function (require, module , exports, h) {
-    "use strict";
+    'use strict';
 
     var components = {};
     var instances = {};
