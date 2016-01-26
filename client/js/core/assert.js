@@ -11,6 +11,7 @@
         if (!expression) {
             throw new Error(message);
         }
+        return expression;
     };
 
 })(this);

@@ -1,6 +1,7 @@
 # virtual-dom-testing
 
 Simple project to test the virtual dom without React by implementing various modules.
+
 ![Dependencies](https://david-dm.org/khaliy/virtual-dom-testing.svg)
 
 Dependencies packaged together with browserify and uglify (around 33kb):
