@@ -1,0 +1,18 @@
+{
+  "components": [
+    {
+      "name": "header-component",
+      "state": {
+        "user": "Bob"
+      }
+    },
+    {
+      "name": "main-component",
+      "state": {}
+    },
+    {
+      "name": "footer-component",
+      "state": "footer"
+    }
+  ]
+}

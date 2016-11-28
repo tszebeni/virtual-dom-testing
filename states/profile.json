@@ -1,0 +1,8 @@
+{
+  "username": "Bob",
+  "avatarUrl": "http://placehold.it/35x35",
+  "tag": {
+    "label": "@Bob's tagline",
+    "url": "#"
+  }
+}

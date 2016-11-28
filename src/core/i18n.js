@@ -20,4 +20,5 @@ define('i18n', ['format', 'message-source'], function (require, module, exports,
     module.exports = resolve;
     module.exports.format = format;
     module.exports.reset = reset;
+    module.exports.messages = messages;
 });

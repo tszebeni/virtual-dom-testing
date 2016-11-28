@@ -212,6 +212,20 @@ textarea:-moz-placeholder { color:#a9a9a9; }
   display: inline-block;
 }
 
+.profile-component img {
+  float: left;
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+}
+
+.profile-component img + div {
+  overflow: auto;
+}
+
+.profile-component a {
+  display: block;
+}
 
 /* Media queries
 -------------------------------------------------------------------------------*/

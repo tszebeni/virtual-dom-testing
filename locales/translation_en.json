@@ -4,7 +4,8 @@
     "debug.toggle": "Toggle debug mode [{0}]",
     "debug.toggle-on-true": "On",
     "debug.toggle-on-false": "Off",
-    "welcome.message": "Welcome on this site!",
+    "welcome.message": "Welcome on this site {0}!",
     "footer.copyright": "Copyright \u00A9 {0}",
-    "countdown.remaining": "Remaining time: {0}"
+    "countdown.remaining": "Remaining time: {0}",
+    "profile.username": "Username: {0}"
 }

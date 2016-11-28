@@ -4,7 +4,7 @@
 define('footer-component', ['virtual-dom/h', 'i18n'], function (require, module, exports, h, i18n) {
     "use strict";
 
-    function footerComponent() {
+    function footerComponent(state) {
         return h('footer',{
             className: 'component footer-component',
             attributes: {
@@ -12,7 +12,7 @@ define('footer-component', ['virtual-dom/h', 'i18n'], function (require, module,
             }
         }, [
             h('p', [
-                i18n('footer.copyright', '2015')
+                i18n('footer.copyright', state.year)
             ])
         ]);
     }

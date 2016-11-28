@@ -3,10 +3,8 @@ describe('i18n-test.js', function () {
     var messageSource = require('message-source');
 
     beforeEach(function () {
-        messageSource['en'] = {
-            'test.key': 'Test key value',
-            'test.key1': 'Test key value {0}'
-        };
+        messageSource.add('en', 'test.key', 'Test key value');
+        messageSource.add('en', 'test.key1', 'Test key value {0}');
     });
 
     it('should be a function', function () {

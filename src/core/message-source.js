@@ -51,8 +51,14 @@ define('message-source', ['format','request', 'global'], function (require, modu
         }
     }
 
+    function add(loc, key, value) {
+        var loc_ = loc || locale || defaultLocale;
+        messageSource[loc_][key] = value;
+    }
+
     module.exports = get;
     module.exports.setLocale = setLocale;
+    module.exports.add = add;
     module.exports.locales = supportedLocales;
     module.exports.locale = locale;
 });

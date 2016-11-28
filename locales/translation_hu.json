@@ -4,7 +4,8 @@
     "debug.toggle": "Debug mód átváltása [{0}]",
     "debug.toggle-on-true": "Be",
     "debug.toggle-on-false": "Ki",
-    "welcome.message": "Üdvözöllek az oldalon",
+    "welcome.message": "Üdvözöllek az oldalon {0}!",
     "footer.copyright": "Védjegy \u00A9 {0}",
-    "countdown.remaining": "Hátralévő idő: {0}"
+    "countdown.remaining": "Hátralévő idő: {0}",
+    "profile.username": "Felhasználó: {0}"
 }
