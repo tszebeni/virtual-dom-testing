@@ -1,10 +1,30 @@
 {
   "name": "virtual-dom-testing",
   "version": "1.0.0",
-  "description": "",
-  "author": "",
+  "description": "virtual dom testing with basic examples",
+  "keywords": [
+    "virtual",
+    "virtual-dom",
+    "virtualdom"
+  ],
+  "author": "Tamas Szebeni <khaliy@gmail.com>",
   "license": "ISC",
+  "main": "./server/server.js",
+  "scripts": {
+    "start": "node ./server/server.js"
+  },
   "dependencies": {
-    "virtual-dom": "^2.0.1"
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "html2hscript": "^1.2.2",
+    "virtual-dom": "^2.0.1",
+    "xss": "^0.2.10"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^4.0.1",
+    "grunt-contrib-clean": "^0.7.0",
+    "grunt-contrib-uglify": "^0.11.0",
+    "grunt-eslint": "^17.3.1"
   }
 }
