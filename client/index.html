@@ -36,6 +36,7 @@
 
     <!-- virtual-dom xss integration -->
     <script src="dist/deps.min.js"></script>
+    <script src="js/core/virtual-dom.js"></script>
     <!-- html2hscript integration -->
     <script src="dist/optional.min.js"></script>
     <script src="js/core/hscript.js"></script>
@@ -45,26 +46,23 @@
     <script src="js/core/leave.js"></script>
 
     <!-- component registry -->
-    <script src="js/core/page-registry.js"></script>
+    <script src="js/core/component-registry.js"></script>
 
     <!-- components -->
-    <script src="js/core/component.js"></script>
-    <script src="js/components/text-component.js"></script>
-    <script src="js/components/html-component.js"></script>
-    <script src="js/components/grid-component.js"></script>
     <script src="js/components/debug-component.js"></script>
-    <script src="js/components/locale-component.js"></script>
     <script src="js/components/header-component.js"></script>
-
+    <script src="js/components/locale-component.js"></script>
     <script src="js/components/countdown-component.js"></script>
+    <script src="js/components/profile-component.js"></script>
     <script src="js/components/main-component.js"></script>
+    <script src="js/components/todo/todo-list-component.js"></script>
+    <script src="js/components/todo/todo-filter-component.js"></script>
+    <script src="js/components/todo/todo-new-component.js"></script>
+    <script src="js/components/todo-component.js"></script>
     <script src="js/components/footer-component.js"></script>
-
-    <script src="js/pages/homepage.js"></script>
 
     <!-- bootstrap -->
     <script src="js/app.js"></script>
-    <script>require('app').start();</script>
 </body>
 </html>
 

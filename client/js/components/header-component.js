@@ -1,20 +1,24 @@
 /**
  * Example component to render a header
  */
-define('header-component', ['deps/h', 'i18n', 'component', 'locale-component', 'debug-component'], function (require, module, exports, h, i18n, Component, LocaleComponent, DebugComponent) {
+define('header-component', ['virtual-dom/h', 'i18n'], function (require, module, exports, h, i18n) {
     'use strict';
 
-    var HeaderComponent = Component.create('header-component', {
-        contents:  [
-            function () {
-                return h('h1', [
-                    i18n('header.message')
-                ]);
-            },
-            new LocaleComponent(),
-            new DebugComponent()
-        ]
-    });
+    module.exports = function() {
 
-    module.exports = HeaderComponent;
+        var localeComponent = require('locale-component');
+        var debugComponent = require('debug-component');
+
+        return h('header',{
+            className: 'component header-component',
+            attributes: {
+                'data-title': 'HeaderComponent'
+            }
+        }, [
+            h('h1', [
+                i18n('header.message')
+            ]),
+            localeComponent(), debugComponent()
+        ]);
+    };
 });

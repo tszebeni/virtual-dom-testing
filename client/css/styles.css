@@ -166,18 +166,9 @@ mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: b
 input:-moz-placeholder { color:#a9a9a9; }
 textarea:-moz-placeholder { color:#a9a9a9; }
 
-[title] {
-  cursor: help;
-}
-
-.page {
-  max-width: 1024px;
-  margin: 10px auto;
-}
-
 .component {
   display: block;
-  padding-bottom: 10px;
+  padding: 5px;
   position: relative;
 }
 
@@ -221,30 +212,46 @@ textarea:-moz-placeholder { color:#a9a9a9; }
   display: inline-block;
 }
 
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
-
-[class*="col-"] {
+.profile-component img {
   float: left;
-  padding-right:3px;
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
 }
 
-[class*="col-"]:last-child {
-  padding-right: 0;
+.profile-component img + div {
+  overflow: auto;
 }
 
-.row:after {
-  content: "";
-  clear: both;
+.profile-component a {
   display: block;
+}
+
+.todo-component input[type=checkbox] {
+  margin-right: 5px;
+  height: 1.25em;
+  width: 1.25em;
+  vertical-align: text-bottom;
+}
+
+.todo-component button {
+  margin-left: 5px;
+}
+
+/* Media queries
+-------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 480px) {
+
+
+}
+
+
+
+/* Print styles
+-------------------------------------------------------------------------------*/
+@media print {
+
+
+
 }

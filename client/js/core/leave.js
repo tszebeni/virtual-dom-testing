@@ -1,7 +1,8 @@
 /**
  * Example component to stop page rendering as we are leaving the page
+ * TODO: wire to onbeforeunload?
  */
-define('leave', [], function (require, module, exports) {
+define('leave', [], function (require, module) {
     'use strict';
 
     function leave() {

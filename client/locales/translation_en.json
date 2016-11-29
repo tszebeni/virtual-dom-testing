@@ -4,8 +4,20 @@
     "debug.toggle": "Toggle debug mode [{0}]",
     "debug.toggle-on-true": "On",
     "debug.toggle-on-false": "Off",
-    "welcome.message": "Welcome on this site!",
-    "grid.intro": "Look at this below me, its a grid:",
+    "welcome.message": "Welcome on this site {0}!",
     "footer.copyright": "Copyright \u00A9 {0}",
-    "countdown.remaining": "Remaining time: {0}"
+    "countdown.remaining": "Remaining time: {0}",
+    "profile.username": "Username: {0}",
+    "todo.filter": "Filters: ",
+    "todo.prop.completed.true": "Show completed",
+    "todo.prop.completed.false": "Show not completed yet",
+    "todo.list": "To do:",
+    "todo.is_completed": "Is completed?",
+    "todo.completed": "Completed: ",
+    "todo.not_completed": "To do: ",
+    "todo.hidden": "Not visible: ",
+    "todo.new.placeholder": "Add new item here...",
+    "todo.remove_this": "Remove item",
+    "true": "Yes",
+    "false": "No"
 }

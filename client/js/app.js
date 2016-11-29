@@ -1,15 +1,14 @@
 /**
  * Bootstrap logic for our app
  */
-define('app', ['deps/h', 'deps/diff','deps/patch','deps/create', 'page-registry', 'functions/debounce'], function (require, module, exports, h, diff, patch, create, pageRegistry, debounce) {
+define('app', ['virtual-dom/h', 'virtual-dom/diff','virtual-dom/patch','virtual-dom/create', 'component-registry', 'state'], function (require, module, exports, h, diff, patch, create, componentRegistry, state) {
     'use strict';
-
+    var container = document.querySelector('.page');
     var finished = false;
     var tree, rootNode;
-    var container;
 
     function render() {
-        return pageRegistry.render('homepage');
+        return componentRegistry.render('homepage', state);
     }
 
     function renderPage() {
@@ -25,30 +24,39 @@ define('app', ['deps/h', 'deps/diff','deps/patch','deps/create', 'page-registry'
             var patches = diff(tree, newTree);
             rootNode = patch(rootNode, patches);
             tree = newTree;
-            // to seamless auto update: require("functions/tick")(updatePage);
+            tick(updatePage);
         }
     }
 
-    function load () {
-        container = document.querySelector('.page');
+    function tick(cb) {
+        (window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(callback ) {
+            window.setTimeout( callback, 1000 / 60 );
+        }) (cb);
+    }
+
+    var update = function update() {
         try {
-            renderPage();
+            updatePage();
         } catch(e) {
-            throw e;
-        }
-    }
-
-    var update = debounce(function update() {
-        updatePage();
-    }, 15);
-
-    module.exports = {
-        leave: function () {
-            finished = true;
-        },
-        update: update,
-        start: function () {
-            load();
+            console.log(e);
         }
     };
+
+    try {
+        renderPage();
+    } catch(e) {
+        console.log(e);
+        throw e;
+    }
+
+    exports.leave = function () {
+        finished = true; // hook to stop rerendering the page on demand
+    };
+    exports.update = update;
+
 });

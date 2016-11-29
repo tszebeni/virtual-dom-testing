@@ -4,8 +4,20 @@
     "debug.toggle": "Debug mód átváltása [{0}]",
     "debug.toggle-on-true": "Be",
     "debug.toggle-on-false": "Ki",
-    "welcome.message": "Üdvözöllek az oldalon",
-    "grid.intro": "Nézd ezt az elrendezést, ez itt egy grid komponens:",
+    "welcome.message": "Üdvözöllek az oldalon {0}!",
     "footer.copyright": "Védjegy \u00A9 {0}",
-    "countdown.remaining": "Hátralévő idő: {0}"
+    "countdown.remaining": "Hátralévő idő: {0}",
+    "profile.username": "Felhasználó: {0}",
+    "todo.filter": "Teendők listájának szűkítése:",
+    "todo.prop.completed.true": "Mutasd a befejezetteket",
+    "todo.prop.completed.false": "Mutasd a nem befejezetteket",
+    "todo.list": "Teendők:",
+    "todo.is_completed": "Elvégezve?",
+    "todo.completed": "Befejezett:",
+    "todo.not_completed": "Elvégzendő:",
+    "todo.hidden": "Elrejtett: ",
+    "todo.new.placeholder": "Új teendő...",
+    "todo.remove_this": "Teendő törlése",
+    "true": "Igen",
+    "false": "Nem"
 }

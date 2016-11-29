@@ -1,28 +1,30 @@
 /**
  * Example component to render a debug switcher
  */
-define('debug-component', ['deps/h', 'i18n', 'request', 'component'], function (require, module, exports, h, i18n, request, Component) {
+define('debug-component', ['virtual-dom/h', 'i18n', 'request'], function (require, module, exports, h, i18n, request) {
     'use strict';
 
-    var DebugComponent = Component.create('debug-component', {
-        init: function () {
-            this.toggle = false;
-        },
-        contents: [
-            function () {
-                return [
-                    h('a', {
-                        href: this.buildHref()
-                    }, [i18n('debug.toggle', i18n('debug.toggle-on-' + this.toggle))])
-                ];
-            }
-        ],
-        buildHref: function () {
-            var params = JSON.parse(JSON.stringify(request.params));
-            this.toggle = params.debug = params.debug === 'true'?'false':'true';
-            return '?' + request.paramEncode(params);
-        }
-    });
+    var toggle = 'false';
 
-    module.exports = DebugComponent;
+    function buildHref () {
+        var params = JSON.parse(JSON.stringify(request.params));
+        toggle = params.debug = params.debug === 'true'?'false':'true';
+        return '?' + request.paramEncode(params);
+    }
+
+    var debugComponent = function debugComponent() {
+
+        return h('div', {
+                className: 'component debug-component',
+                attributes: {
+                    'data-title': 'DebugComponent'
+                }
+            }, [
+                h('a', {
+                    href: buildHref()
+                }, [i18n('debug.toggle', i18n('debug.toggle-on-' + toggle))])
+            ]);
+    };
+
+    module.exports = debugComponent;
 });

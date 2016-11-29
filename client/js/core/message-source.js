@@ -1,6 +1,6 @@
 /**
  * Message source for I18n logic, loads and holds translations
- * TODO: make it more configurable
+ * TODO: make it configurable
  * TODO: merge translations
  */
 define('message-source', ['format','request', 'global'], function (require, module, exports, format, request, global) {
@@ -35,7 +35,8 @@ define('message-source', ['format','request', 'global'], function (require, modu
         }).then(function (response) {
             messageSource[locale_] = JSON.parse(response);
             locale = locale_;
-            require('i18n').reset();
+            var i18n = require('i18n');
+            i18n.reset();
         }, function () {
             assert(locale !== defaultLocale, 'Failed to load translations for defaultLocale: ' + defaultLocale);
         });
@@ -51,9 +52,14 @@ define('message-source', ['format','request', 'global'], function (require, modu
         }
     }
 
+    function add(loc, key, value) {
+        var loc_ = loc || locale || defaultLocale;
+        messageSource[loc_][key] = value;
+    }
 
-    get.setLocale = setLocale;
-    get.locales = supportedLocales;
-    get.locale = locale;
     module.exports = get;
+    module.exports.setLocale = setLocale;
+    module.exports.add = add;
+    module.exports.locales = supportedLocales;
+    module.exports.locale = locale;
 });
