@@ -2,7 +2,8 @@
  * Simple parameter placeholder formatter.
  * TODO: add typeformatters
  */
-define('format', [], function (require, module, exports) {
+define('format', [], function (require, module) {
+    'use strict';
 
     var format = function format(msg /*, parameters */) {
         msg = String(msg);

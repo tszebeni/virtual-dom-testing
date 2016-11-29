@@ -2,7 +2,7 @@
  * Example component to render a header
  */
 define('header-component', ['virtual-dom/h', 'i18n'], function (require, module, exports, h, i18n) {
-    "use strict";
+    'use strict';
 
     module.exports = function() {
 

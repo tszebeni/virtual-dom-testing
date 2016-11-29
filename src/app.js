@@ -2,7 +2,7 @@
  * Bootstrap logic for our app
  */
 define('app', ['virtual-dom/h', 'virtual-dom/diff','virtual-dom/patch','virtual-dom/create', 'component-registry', 'state'], function (require, module, exports, h, diff, patch, create, componentRegistry, state) {
-    "use strict";
+    'use strict';
     var container = document.querySelector('.page');
     var finished = false;
     var tree, rootNode;
@@ -34,7 +34,7 @@ define('app', ['virtual-dom/h', 'virtual-dom/diff','virtual-dom/patch','virtual-
         window.mozRequestAnimationFrame ||
         window.oRequestAnimationFrame ||
         window.msRequestAnimationFrame ||
-        function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element ) {
+        function(callback ) {
             window.setTimeout( callback, 1000 / 60 );
         }) (cb);
     }

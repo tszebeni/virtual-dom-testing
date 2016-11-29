@@ -1,0 +1,26 @@
+{
+  "filter-completed-true": true,
+  "filter-completed-false": true,
+  "todos": [
+    {
+      "label": "Add more components",
+      "completed": false,
+      "visible": true
+    },
+    {
+      "label": "Make app more shiny",
+      "completed": true,
+      "visible": true
+    },
+    {
+      "label": "Add some unit test",
+      "completed": true,
+      "visible": true
+    },
+    {
+      "label": "Add even more unit tests",
+      "completed": false,
+      "visible": true
+    }
+  ]
+}

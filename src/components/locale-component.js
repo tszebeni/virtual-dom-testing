@@ -2,7 +2,7 @@
  * Example component to render a locale switcher
  */
 define('locale-component', ['virtual-dom/h', 'i18n', 'message-source'], function (require, module, exports, h, i18n, messageSource) {
-    "use strict";
+    'use strict';
 
     var locales = messageSource.locales;
     var activeLocale = messageSource.locale;

@@ -2,12 +2,14 @@
  * State manager
  */
 define('state', ['request', 'format'], function (require, module, exports, request, format) {
+    'use strict';
 
     var url = 'states/{0}.json'; // parameter: key attribute
 
     var State = function State(key) {
         this.states_ = {};
-        if (typeof key  !== "string") {
+        this.listeners_ = {};
+        if (typeof key  !== 'string') {
             var json = JSON.stringify(key);
             this.promise = Promise.resolve(json);
         } else {
@@ -20,7 +22,7 @@ define('state', ['request', 'format'], function (require, module, exports, reque
                 this[key] = json[key];
             }.bind(this));
         }.bind(this), function () {
-            console.log("state cannot be loaded: " + this.key);
+            console.log('state cannot be loaded: ' + this.key);
         }.bind(this));
     };
 
@@ -42,6 +44,18 @@ define('state', ['request', 'format'], function (require, module, exports, reque
             this.states_.forEach(function () {
                 this.clear();
             });
+        },
+        notify: function (event) {
+            this.listeners_[event] = this.listeners_[event] || {};
+            Object.keys(this.listeners_[event]).forEach(function (key) {
+                setTimeout(function() {this.listeners_[event][key](event, this);}.bind(this), 100);
+            }.bind(this));
+        },
+        listener: function (event, source, listener) {
+            this.listeners_[event] = this.listeners_[event] || {};
+            if (!this.listeners_[event][source]) {
+                this.listeners_[event][source] = listener;
+            }
         }
     };
 

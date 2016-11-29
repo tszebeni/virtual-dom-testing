@@ -2,7 +2,7 @@
  * Integration module for third party virtual dom
  */
 define('virtual-dom', ['anonymous0'], function (require, module, exports, virtualDom) {
-    "use strict";
+    'use strict';
 
     var assertionMessage = 'VirtualDom should have the following api: {h:(),diff:(),patch:(),create:()}';
 

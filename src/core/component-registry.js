@@ -2,14 +2,14 @@
  * Component Registry logic
  */
 define('component-registry', ['virtual-dom/h', 'request'], function (require, module , exports, h, request) {
-    "use strict";
+    'use strict';
 
     function container(elements) {
         var request = require('request');
         return h('article', {
             className: request.params.debug === 'true'? 'debug':''
         }, elements.filter(function (elem) {
-            return !!elem
+            return !!elem;
         }));
     }
 

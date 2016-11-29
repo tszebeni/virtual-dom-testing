@@ -2,7 +2,7 @@
  * Example component to render a profile block
  */
 define('profile-component', ['virtual-dom/h', 'i18n'], function (require, module, exports, h, i18n) {
-    "use strict";
+    'use strict';
 
     function profileComponent(state) {
         return h('div',{

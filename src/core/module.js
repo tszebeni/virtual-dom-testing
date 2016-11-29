@@ -3,7 +3,7 @@
  * TODO: Promise based waitFor for not yet defined modules
  */
 (function (global) {
-    "use strict";
+    'use strict';
     var modules = {};
     var counter = 0;
 

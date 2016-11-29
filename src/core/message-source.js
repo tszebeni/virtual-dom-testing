@@ -4,6 +4,7 @@
  * TODO: merge translations
  */
 define('message-source', ['format','request', 'global'], function (require, module, exports, format, request, global) {
+    'use strict';
 
     var supportedLocales = ['en', 'hu'];
     var defaultLocale = supportedLocales[0];

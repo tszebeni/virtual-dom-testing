@@ -2,6 +2,7 @@
  * I18n logic to resolve message keys and substitute parameters
  */
 define('i18n', ['format', 'message-source'], function (require, module, exports, format, messageSource) {
+    'use strict';
     var messages = {};
 
     var resolve = function resolve(key /*, parameters */) {

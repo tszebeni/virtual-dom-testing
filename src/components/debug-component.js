@@ -2,7 +2,7 @@
  * Example component to render a debug switcher
  */
 define('debug-component', ['virtual-dom/h', 'i18n', 'request'], function (require, module, exports, h, i18n, request) {
-    "use strict";
+    'use strict';
 
     var toggle = 'false';
 
@@ -21,7 +21,7 @@ define('debug-component', ['virtual-dom/h', 'i18n', 'request'], function (requir
                 }
             }, [
                 h('a', {
-                    href: buildHref(),
+                    href: buildHref()
                 }, [i18n('debug.toggle', i18n('debug.toggle-on-' + toggle))])
             ]);
     };

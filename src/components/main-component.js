@@ -2,12 +2,13 @@
  * Example component to render a main block
  */
 define('main-component', ['virtual-dom/h', 'i18n'], function (require, module, exports, h, i18n) {
-    "use strict";
+    'use strict';
 
     function mainComponent(state) {
 
         var countdownComponent = require('countdown-component');
         var profileComponent = require('profile-component');
+        var todoComponent = require('todo-component');
 
         return h('main',{
             className: 'component main-component',
@@ -20,7 +21,8 @@ define('main-component', ['virtual-dom/h', 'i18n'], function (require, module, e
                 profileComponent(state.get('profile')),
                 countdownComponent(state.get('timer1')),
                 countdownComponent(state.get('timer2')),
-                countdownComponent(state.get('timer3'))
+                countdownComponent(state.get('timer3')),
+                todoComponent(state.get('todo'))
             ])
         ]);
     }
